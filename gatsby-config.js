@@ -130,18 +130,6 @@ module.exports = {
         plugins: [],
       },
     },
-    {
-      resolve: 'gatsby-source-strapi',
-      options: {
-        apiURL: 'https://jij20.herokuapp.com',
-        contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
-          'artist',
-          'user',
-          'article'
-        ],
-        queryLimit: 2000,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
