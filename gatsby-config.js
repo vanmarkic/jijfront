@@ -3,6 +3,7 @@ module.exports = {
     title: `Jam'in Jette Festival`,
     description: `The biggest free open air festival without barriers in Brussels `,
     author: `Dragan Markovic`,
+    siteUrl : `https://jij2020.netlify.com`
   },
   plugins: [
     /*
