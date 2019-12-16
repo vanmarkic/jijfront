@@ -3,10 +3,20 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {colors} from '../theme'
+import { css } from "@emotion/core"
+
+
 const BlogPostTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressPost.title} description={data.wordpressPost.excerpt} />
-    <h1 dangerouslySetInnerHTML={{__html: data.wordpressPost.title}} />
+    <h1 dangerouslySetInnerHTML={{__html: data.wordpressPost.title}} css={css`
+          color: ${colors.red};
+          border-bottom: 1px solid #ddd;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem calc((100vw - 900px) / 2);
+        `}/>
     <p>
         {data.wordpressPost.date}
     </p>

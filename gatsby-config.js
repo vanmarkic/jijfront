@@ -12,6 +12,14 @@ module.exports = {
      */
     'gatsby-plugin-emotion',
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svg/ 
+        }
+      }
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         /*
@@ -95,6 +103,7 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
+          "**/menus",
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/posts/1456"],

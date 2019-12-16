@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 const PageTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressPage.title} description={data.wordpressPage.excerpt} />
-    <h1>{data.wordpressPage.title}</h1>
+    <h1 dangerouslySetInnerHTML={{ __html:data.wordpressPage.title}} />
     {/* <Img sizes={data.wordpressPage.acf.feat_img.localFile.childImageSharp.sizes} alt={data.wordpressPage.title} style={{ maxHeight: 450 }} /> */}
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
   </Layout>

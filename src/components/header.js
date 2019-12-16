@@ -1,63 +1,89 @@
 import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
-import {styled} from "@emotion/styled"
-import {css} from '@emotion/core'
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import {colors} from '../../src/theme'
+import Logo from '../images/svg/logo.svg'
 
-
-// const NavLink = styled(Link)`
-//   color: #222;
-//   font-size: 1rem;
-//   font-weight: ${props => props.fontWeight || "normal"};
-//   line-height: 1;
-//   margin: 0 0.5rem 0 0;
-//   padding: 0.25rem;
-//   text-decoration: none;
-//   &.current-page {
-//     border-bottom: 2px solid #222;
-//   }
-//   &:last-of-type {
-//     margin-right: 0;
-//   }
-// `
+const NavLink = styled(Link)`
+  color: ${colors.ciel};
+  font-size: 1rem;
+  font-family : 'Cubano', 'Arial', 'Helvetica';
+  font-weight: ${props => props.fontWeight || "normal"};
+  line-height: 1;
+  margin: auto 0.5rem auto 0;
+  padding: 0.25rem;
+  text-decoration: none;
+  &.current-page {
+    border-bottom: 2px solid ${colors.yellorange};
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+`
 
 const Header = () => (
   <StaticQuery
     query={graphql`
       {
-        allWordpressPage {
+        allWordpressMenusMenusItems {
           edges {
             node {
-              slug
-              title
+              items {
+                post_title
+                post_name
+                menu_order
+                menu_item_parent
+                title
+                slug
+                post_parent
+                child_items {
+                  menu_order
+                  slug
+                  post_title
+                  post_name
+                  title
+                }
+              }
             }
           }
         }
       }
     `}
+
     render={data => (
       <header
         css={css`
-          background: #eee;
+          background: ${colors.darkblue};
           border-bottom: 1px solid #ddd;
           display: flex;
           justify-content: space-between;
-          padding: 0.5rem calc((100vw - 550px - 0.5rem) / 2);
+          padding: 0.5rem calc((100vw - 900px - 0.5rem) / 2);
         `}
       >
-        <Link to="/" fontWeight="bold">
-          Jam'in Jette
-        </Link>
+        <NavLink to="/">
+          <Logo  css={css`
+            height : 50px;
+            color : black;
+        `}/>
+        </NavLink>
 
         <nav
           css={css`
             margin-top: 0;
+            display:flex;
           `}
         >
-          {data.allWordpressPage.edges.map(document => (
-            <Link to={'/'+ document.node.slug} activeClassName="current-page">
-              {document.node.title}
-            </Link>
-          ))}
+          {data.allWordpressMenusMenusItems.edges[0].node.items.slice(1).map(document => 
+            (<NavLink
+              to={"/" + document.slug}
+              activeClassName="current-page"
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: document.title }}
+              />
+            </NavLink>)
+          )}
         </nav>
       </header>
     )}
@@ -65,16 +91,3 @@ const Header = () => (
 )
 
 export default Header
-
-// export const query = graphql`
-// {
-//   allWordpressPage {
-//     edges {
-//       node {
-//         slug
-//         title
-//       }
-//     }
-//   }
-// }
-// `

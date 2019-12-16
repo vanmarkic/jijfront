@@ -12,6 +12,7 @@ import { Global, css } from '@emotion/core';
 
 import Header from "./header"
 import "./layout.css"
+import {colors} from "../theme"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -37,9 +38,10 @@ const Layout = ({ children }) => {
           }
           html,
           body {
+            background-color : ${colors.white};
             margin: 0;
             color: #555;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            font-family: Roboto, BlinkMacSystemFont, 'Segoe UI', Roboto,
               Helvetica, Arial, sans-serif;
             font-size: 18px;
             line-height: 1.4;
@@ -74,7 +76,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `0 auto`,
+          margin: `30px auto`,
           maxWidth: 960,
           padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
