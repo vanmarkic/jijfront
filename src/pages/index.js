@@ -1,34 +1,41 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-// import ReactMarkdown from "react-markdown"
-import { Global, css } from '@emotion/core';
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import ArticleCard from "../components/article-card.js"
+import {colors} from '../../src/theme'
+import {css} from '@emotion/core'
 
+// const StyledCard = styled(ArticleCard)`
+//   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+//   color: ${colors.ciel};
+//   font-size: 1rem;
+//   font-family : 'Cubano-Regular', 'Arial', 'Helvetica';
+//   font-weight: ${props => props.fontWeight || "normal"};
+//   line-height: 1;
+//   margin: auto 0.5rem auto 0;
+//   padding: 0.25rem;
+//   text-decoration: none;
+//   &.current-page {
+//     border-bottom: 2px solid ${colors.yellorange};
+//   }
+//   &:last-of-type {
+//     margin-right: 0;
+//   }
+// `
 
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title='Home' />
-    <ul>
-      {data.allWordpressPost.edges.map(document => (
-        <li key={document.node.slug}>
-          <h2>
-            <Link to={`/post/${document.node.slug}`}>
-            <div dangerouslySetInnerHTML={{__html: document.node.title}} /></Link>
-          </h2>
-          <h5>{document.node.date}</h5>
-
-
-          <div dangerouslySetInnerHTML={{__html: document.node.excerpt}} />
-            
-
-          
-        </li>
+    <div>
+      {data.allWordpressPost.edges.map((document,index) => (
+       <ArticleCard post={document.node} key={index} />
       ))}
-    </ul>
+    </div>
   </Layout>
 )
 
@@ -57,3 +64,4 @@ query {
   }
 }
 `
+

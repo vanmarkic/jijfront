@@ -6,20 +6,21 @@ import {colors} from '../../src/theme'
 import Logo from '../images/svg/logo.svg'
 
 const NavLink = styled(Link)`
-  color: ${colors.ciel};
+  color: ${colors.greypurple};
   font-size: 1rem;
-  font-family : 'Cubano', 'Arial', 'Helvetica';
+  font-family : 'Cubano-Regular', 'Arial', 'Helvetica';
   font-weight: ${props => props.fontWeight || "normal"};
   line-height: 1;
   margin: auto 0.5rem auto 0;
   padding: 0.25rem;
   text-decoration: none;
-  &.current-page {
+  &.current-page, :hover  {
     border-bottom: 2px solid ${colors.yellorange};
   }
   &:last-of-type {
     margin-right: 0;
   }
+
 `
 
 const Header = () => (
@@ -44,7 +45,7 @@ const Header = () => (
                   post_name
                   title
                 }
-              }
+              } 
             }
           }
         }
@@ -54,16 +55,16 @@ const Header = () => (
     render={data => (
       <header
         css={css`
-          background: ${colors.darkblue};
           border-bottom: 1px solid #ddd;
           display: flex;
-          justify-content: space-between;
-          padding: 0.5rem calc((100vw - 900px - 0.5rem) / 2);
+          justify-content: space-around;
+          ${'' /* padding: 0.5rem calc((100vw - 900px - 0.5rem) / 2); */}
         `}
       >
         <NavLink to="/">
           <Logo  css={css`
             height : 50px;
+            width: auto;
             color : black;
         `}/>
         </NavLink>

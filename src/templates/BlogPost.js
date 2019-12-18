@@ -15,7 +15,7 @@ const BlogPostTemplate = ({ data }) => (
           border-bottom: 1px solid #ddd;
           display: flex;
           justify-content: space-between;
-          padding: 0.5rem calc((100vw - 900px) / 2);
+          line-height: 1.4;
         `}/>
     <p>
         {data.wordpressPost.date}

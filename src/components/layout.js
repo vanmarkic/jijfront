@@ -29,20 +29,25 @@ const Layout = ({ children }) => {
     <>
         <Global
         styles={css`
+
+          @font-face {
+            font-family: "Cubano-Regular";
+            src: url(../../fonts/Cubano-Regular.woff);
+          }
+
           * {
             box-sizing: border-box;
             margin: 0;
           }
           * + * {
-            margin-top: 1rem;
+            margin-top: 4rem;
           }
           html,
           body {
             background-color : ${colors.white};
             margin: 0;
             color: #555;
-            font-family: Roboto, BlinkMacSystemFont, 'Segoe UI', Roboto,
-              Helvetica, Arial, sans-serif;
+            font-family: sans-serif;
             font-size: 18px;
             line-height: 1.4;
             /* remove margin for the main div that Gatsby mounts into */
@@ -54,21 +59,29 @@ const Layout = ({ children }) => {
             h3,
             h4,
             h5,
-            h6,
-            Link {
-              color: #222;
-              font-family: Cubano;
+            h6 {
+              font-family: Cubano-Regular;
               line-height: 1.1;
-              letter-spacing: 0.3rem;
               + * {
                 margin-top: 0.5rem;
               }
             }
+            a {
+              text-decoration : none;
+              color: ${colors.greypurple};
+              font-family: Cubano-Regular, sans-serif;
+              line-height: 1.1;
+              + * {
+                margin-top: 0.5rem;
+              }
+            }
+
             strong {
               color: #222;
             }
             li {
               margin-top: 0.25rem;
+              list-style-type: none;
             }
           }
         `}
