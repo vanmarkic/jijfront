@@ -3,12 +3,12 @@ import { graphql } from "gatsby"
 // import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-const PageTemplate = ({ data }) => (
+const PageTemplate = ({ pageContext }) => (
   <Layout>
-    <SEO title={data.wordpressPage.title} description={data.wordpressPage.excerpt} />
-    <h1 dangerouslySetInnerHTML={{ __html:data.wordpressPage.title}} />
-    {/* <Img sizes={data.wordpressPage.acf.feat_img.localFile.childImageSharp.sizes} alt={data.wordpressPage.title} style={{ maxHeight: 450 }} /> */}
-    <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+    <SEO title={pageContext.title} description={pageContext.excerpt} />
+    <h1 dangerouslySetInnerHTML={{ __html:pageContext.title}} />
+    {/* <Img sizes={pageContext.acf.feat_img.localFile.childImageSharp.sizes} alt={pageContext.title} style={{ maxHeight: 450 }} /> */}
+    <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: pageContext.content }} />
   </Layout>
 )
 export default PageTemplate

@@ -39,9 +39,9 @@ const Layout = ({ children }) => {
             box-sizing: border-box;
             margin: 0;
           }
-          * + * {
+          /* * + * {
             margin-top: 4rem;
-          }
+          } */
           html,
           body {
             background-color : ${colors.white};
@@ -82,6 +82,10 @@ const Layout = ({ children }) => {
             li {
               margin-top: 0.25rem;
               list-style-type: none;
+            }
+            .has-2-columns {
+              display:flex;
+              justify-content:space-between;
             }
           }
         `}

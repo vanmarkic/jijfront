@@ -53,7 +53,7 @@ query {
         wpml_translations {
           locale
           wordpress_id
-          post_title
+          title
           href
         }
         excerpt

@@ -7,10 +7,10 @@ import {colors} from '../theme'
 import { css } from "@emotion/core"
 
 
-const BlogPostTemplate = ({ data }) => (
+const BlogPostTemplate = ({ pageContext }) => (
   <Layout>
-    <SEO title={data.wordpressPost.title} description={data.wordpressPost.excerpt} />
-    <h1 dangerouslySetInnerHTML={{__html: data.wordpressPost.title}} css={css`
+    <SEO title={pageContext.title} description={pageContext.title} />
+    <h1 dangerouslySetInnerHTML={{__html: pageContext.title}} css={css`
           color: ${colors.red};
           border-bottom: 1px solid #ddd;
           display: flex;
@@ -18,23 +18,24 @@ const BlogPostTemplate = ({ data }) => (
           line-height: 1.4;
         `}/>
     <p>
-        {data.wordpressPost.date}
+        {pageContext.date}
     </p>
-    {/* <Img sizes={data.wordpressPost.acf.feat_img.localFile.childImageSharp.sizes} alt={data.wordpressPost.title} style={{ maxHeight: 450 }} /> */}
-    <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
+    {/* <Img sizes={pageContext.acf.feat_img.localFile.childImageSharp.sizes} alt={pageContext.title} style={{ maxHeight: 450 }} /> */}
+    <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: pageContext.content }} />
   </Layout>
 )
 export default BlogPostTemplate
-export const query = graphql`
-  query($id: Int!) {
-    wordpressPost(wordpress_id: { eq: $id }) {
-      title
-      content
-      excerpt
-      date(formatString: "D MMMM YYYY")
-      author {
-        name
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query($id: Int!) {
+//     wordpressPost(wordpress_id: { eq: $id }) {
+//       title
+//       content
+//       excerpt
+//       date(formatString: "D MMMM YYYY")
+//       author {
+//         name
+//       }
+//       wordpress_id
+//     }
+//   }
+// `

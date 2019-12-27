@@ -10,6 +10,7 @@ module.exports = {
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from WordPress.
      */
+    'gatsby-plugin-i18n',
     'gatsby-plugin-emotion',
     {
       resolve: "gatsby-plugin-react-svg",
@@ -19,6 +20,7 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-preact`,
     {
       resolve: "gatsby-source-wordpress",
       options: {
@@ -104,9 +106,10 @@ module.exports = {
           "**/taxonomies",
           "**/users",
           "**/menus",
+          "**/zona_music",
         ],
         // Blacklisted routes using glob patterns
-        excludedRoutes: ["**/posts/1456"],
+        // excludedRoutes: ["**/posts/1456"],
         // Set this to keep media sizes.
         // This option is particularly useful in case you need access to
         // URLs for thumbnails, or any other media detail.
@@ -148,7 +151,7 @@ module.exports = {
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
-        start_url: `/`,
+        start_url: `/fr/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,

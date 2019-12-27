@@ -77,7 +77,7 @@ const Header = () => (
         >
           {data.allWordpressMenusMenusItems.edges[0].node.items.slice(1).map(document => 
             (<NavLink
-              to={"/" + document.slug}
+              to={"/fr/" + document.slug}
               activeClassName="current-page"
             >
               <div
@@ -85,6 +85,20 @@ const Header = () => (
               />
             </NavLink>)
           )}
+          <NavLink
+              to={"/fr/"}
+              activeClassName="current-page"
+            >
+              FR
+            </NavLink>
+            <NavLink
+              to={"/nl/"}
+              activeClassName="current-page"
+            >
+              NL
+            </NavLink>
+
+
         </nav>
       </header>
     )}
