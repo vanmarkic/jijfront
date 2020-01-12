@@ -1,0 +1,4 @@
+RewriteRule ^xmlrpc\.php$ "http\:\/\/0\.0\.0\.0\/" [R=301,L]
+RedirectMatch 301 ^/2019 /
+RewriteRule ^2019/(.*)$ /$1 [R=301,NC,L]
+

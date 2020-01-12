@@ -11,6 +11,19 @@ module.exports = {
      * plugins. Here the site sources its data from WordPress.
      */
     'gatsby-plugin-i18n',
+    // {
+    //   resolve: `gatsby-plugin-intl`,
+    //   options: {
+    //     // language JSON resource path
+    //     path: `${__dirname}/src/intl`,
+    //     // supported language
+    //     languages: [`fr`, `nl`],
+    //     // language file path
+    //     defaultLanguage: `fr`,
+    //     // option to redirect to `/ko` when connecting `/`
+    //     redirect: true,
+    //   },
+    // },
     'gatsby-plugin-emotion',
     {
       resolve: "gatsby-plugin-react-svg",
@@ -28,7 +41,7 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "jaminjette.be",
+        baseUrl: "jaminjette.be/2019",
         // The protocol. This can be http or https.
         protocol: "http",
         // Indicates whether the site is hosted on wordpress.com.
