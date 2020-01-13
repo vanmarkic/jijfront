@@ -78,11 +78,19 @@ const Header = () => (
           {data.allWordpressMenusMenusItems.edges[0].node.items.slice(1).map(document => 
             (<NavLink
               to={"/fr/" + document.slug}
-              activeClassName="current-page"
             >
               <div
                 dangerouslySetInnerHTML={{ __html: document.title }}
               />
+              {document.child_items && document.child_items.map(item => <NavLink
+              to={"/fr/" + item.slug}
+              activeClassName="current-page"
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
+                </NavLink>)
+              }
             </NavLink>)
           )}
           <NavLink
